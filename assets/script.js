@@ -5,7 +5,7 @@ var currentLocation = document.getElementById("getLocation");
 var currentWeatherHeader = document.getElementById("currentWeatherHeader");
 var currentTempHeader = document.getElementById("currentTemp");
 
-//5 day forecast
+// Display Forecast
 var ElDisplayDay = document.getElementById("displayDay");
 var ElDisplayDate = document.getElementById("displayDate");
 var ElDisplayWeatherIcon = document.getElementById("displayWeatherIcon");
@@ -88,6 +88,7 @@ function clickSearch(){
                         ElDisplayDay.innerHTML = "<h5>" + moment().format("dddd"); + "</h5>"
                         ElDisplayUVI.innerHTML = "UV Index: " + data.current.uvi;
                         document.getElementById("displayWeatherIcon").src="assets/images/" + data.current.weather[0].icon + ".svg";
+                        document.getElementById("weatherPanel").style.visibility="visible";
                 });
                 
 
