@@ -24,26 +24,31 @@
         <div>
             <i class="fas fa-umbrella"></i><h1>Weather... <br> you should go?</h1>
         </div>
-        <div>
-            <p id="currentDay"></p>
-            <p id="getLocation"></p>
-            <p id="currentWeatherHeader"></p>
+        <div class="clickWeather">
+            <p class="correctCase" id="currentDay"></p>
+            <p class="correctCase" id="getLocation"></p>
+            <p class="correctCase" id="currentTemp"></p>
+            <p class="correctCase" id="currentWeatherHeader"></p>
             <button class="btn btn-primary" onclick="getLocation()">Get Current Location</button>
         </div>
     </header>
     <!-- Search Panel -->
     <div class="row align-items-end">
-        <div class="col-12 col-md-6">
-            <img class='img-fluid' src="https://via.placeholder.com/1920x1080" alt="video placeholder" />
+        <div class="card" style="width: 27rem;">
+            <div class="card-body">
+                <h5 class="card-title">Weather Search</h5>
+                
+                <p class="card-text">Find a great reason to cancel those plans! Come rain, hail or shine!</p>
+                <input type="text" id= "searchBox" placeholder="Search City"></input>
+                <br>
+                <br>
+                <button class="btn btn-primary">Find Weather</button>
+            </div>
         </div>
         <!-- Uses a combination of col-* values to make full-size on small devices and half-size on medium or larger devices -->
             <div class="col-12 col-md-6">
                 <h1>Introduction to Weather</h1>
-                <p>This is weather.... Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, reprehenderit! Placeat quo
-                    necessitatibus porro corporis quasi architecto sit aspernatur inventore, perspiciatis nulla hic soluta ipsum
-                    ipsa sed iure dolorum! Tenetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatem
-                    dolorum earum esse recusandae facere aliquam. Excepturi facilis sint nesciunt ipsa, eveniet facere in quidem
-                    voluptas exercitationem distinctio commodi laborum!</p>
+                <p>The number of times I've had to go somewhere only to realise I could have cancelled due to bad weather is too dang high! Even when its sunny, the risk of deadly UV rays provides a excellent deterrent to venturing into the great outdoors! Don't leave yourself open to surprise expeditions! Use Weather... you should go... TODAY!</p>
             </div>
         </div>
     </div>
@@ -52,16 +57,16 @@
     <!-- Current city Panel -->
     <!-- Weather Cards -->
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+            <div class="displayDay"><h5 class="card-title">Day</h5></div>
+            <div class="displayDate"><p>Date</p></div>
+            <div class="displayWeatherIcon"><img src=""></div>
+            <div class="displayTemp"><p class="card-text"></p><p>°C</p></div>
+            <div class="displayLocation"><p>City</p></div>
+            <div class="displayHumidity"> <p>Humidity</p></div>
+            <div class="displayUVI"> <p>UVI</p></div>
     </div>
 
-
+<!-- city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index -->
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>

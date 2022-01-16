@@ -16,7 +16,7 @@ SO THAT I can plan a trip accordingly
 |Can Search by city||
 |Weather details are displayed||
 |5 day future weather is displayed ||
-|Previouse searches are listed and clickable||
+|Last searches are listed and clickable||
 |UV index changes color based on conditions ||
 |||
 

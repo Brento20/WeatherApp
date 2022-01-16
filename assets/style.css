@@ -1,5 +1,7 @@
 html {
     font-family: 'Nunito Sans', sans-serif;;
+    max-width: 920px;
+    margin: auto;
 }
 
 .headerStyle {
@@ -15,4 +17,16 @@ html {
 
 .headerStyle i {
     font-size: 3.5em;
+}
+
+.clickWeather {
+    justify-content: right;
+}
+
+.card {
+    margin: 20px;
+}
+
+.correctCase {
+    text-transform: capitalize;
 }
