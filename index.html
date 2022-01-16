@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <!-- CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>  
     <link rel="stylesheet" href="./assets/style.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
 </head>
@@ -42,13 +42,13 @@
                 <input type="text" id= "searchBox" placeholder="Search City"></input>
                 <br>
                 <br>
-                <button class="btn btn-primary">Find Weather</button>
+                <button onclick="clickSearch()" class="btn btn-primary">Find Weather</button>
             </div>
         </div>
         <!-- Uses a combination of col-* values to make full-size on small devices and half-size on medium or larger devices -->
             <div class="col-12 col-md-6">
                 <h1>Introduction to Weather</h1>
-                <p>The number of times I've had to go somewhere only to realise I could have cancelled due to bad weather is too dang high! Even when its sunny, the risk of deadly UV rays provides a excellent deterrent to venturing into the great outdoors! Don't leave yourself open to surprise expeditions! Use Weather... you should go... TODAY!</p>
+                <p>The number of times I've had to go somewhere only to realise I could have cancelled due to bad weather is too dang high! Even when its sunny, the risk of deadly UV rays provides a excellent deterrent to venturing into the great outdoors! Don't leave yourself open to surprise expeditions! Use "Weather... you should go?" TODAY!</p>
             </div>
         </div>
     </div>
@@ -56,14 +56,15 @@
 
     <!-- Current city Panel -->
     <!-- Weather Cards -->
-    <div class="card" style="width: 18rem;">
-            <div class="displayDay"><h5 class="card-title">Day</h5></div>
-            <div class="displayDate"><p>Date</p></div>
-            <div class="displayWeatherIcon"><img src=""></div>
-            <div class="displayTemp"><p class="card-text"></p><p>°C</p></div>
-            <div class="displayLocation"><p>City</p></div>
-            <div class="displayHumidity"> <p>Humidity</p></div>
-            <div class="displayUVI"> <p>UVI</p></div>
+    <div class="card" style="width: 14rem;">
+            <div id="displayDay"><h5 class="card-title">Day</h5></div>
+            <div id="displayDate"><p>Date</p></div>
+            <div id="displayWeatherIcon"></div>
+            <div class="correctCase" id="displayConditions"><p>Conditions</p></div>
+            <div id="displayTemp"><p class="card-text"></p><p>°C</p></div>
+            <div id="displayLocation"><p>City</p></div>
+            <div id="displayHumidity"> <p>Humidity</p></div>
+            <div id="displayUVI"> <p>UVI</p></div>
     </div>
 
 <!-- city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index -->
