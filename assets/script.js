@@ -61,7 +61,7 @@ function clickSearch(){
     var city = searchBox.value;
     localStorage.setItem("city :", city); 
     
-    fetch("http://api.openweathermap.org/data/2.5/forecast?q=" + city + key)
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + key)
         .then(function(response) {
             return response.json();
         })
