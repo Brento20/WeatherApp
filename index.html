@@ -5,9 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link ref="stylesheet" href="assets/style.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="./assets/style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
 </head>
+
 <body>
-    <script src="assets/script.js"></script>
+    <!-- Header -->
+    <header class="headerStyle container-xxl">
+        <div>
+            <i class="fas fa-umbrella"></i><h1>Weather... <br> you should go?</h1>
+        </div>
+        <div>
+            <p id="currentDay"></p>
+            <p id="getLocation"></p>
+            <p id="currentWeatherHeader"></p>
+            <button class="btn btn-primary" onclick="getLocation()">Get Current Location</button>
+        </div>
+    </header>
+    <!-- Search Panel -->
+    <div class="row align-items-end">
+        <div class="col-12 col-md-6">
+            <img class='img-fluid' src="https://via.placeholder.com/1920x1080" alt="video placeholder" />
+        </div>
+        <!-- Uses a combination of col-* values to make full-size on small devices and half-size on medium or larger devices -->
+            <div class="col-12 col-md-6">
+                <h1>Introduction to Weather</h1>
+                <p>This is weather.... Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, reprehenderit! Placeat quo
+                    necessitatibus porro corporis quasi architecto sit aspernatur inventore, perspiciatis nulla hic soluta ipsum
+                    ipsa sed iure dolorum! Tenetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatem
+                    dolorum earum esse recusandae facere aliquam. Excepturi facilis sint nesciunt ipsa, eveniet facere in quidem
+                    voluptas exercitationem distinctio commodi laborum!</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Current city Panel -->
+    <!-- Weather Cards -->
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
+
 </body>
 </html>
