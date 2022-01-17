@@ -50,3 +50,24 @@ html {
     background-color: rgb(1, 112, 1);
     border-radius: 4px;
 }
+
+img {
+    margin: auto;
+}
+
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.today {
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(255, 240, 158));
+}
+
+.future {
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(211, 220, 230));
+}

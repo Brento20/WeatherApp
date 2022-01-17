@@ -22,6 +22,31 @@ var openWeatherAPIlink = "https://api.openweathermap.org/data/2.5/onecall?"
 //Modifiers 
 var kelvin = 273.15;
 
+function onload(){
+
+document.getElementById("weatherPanel").setAttribute("class", "hidden");
+document.getElementById("weatherPanel1").setAttribute("class", "hidden");
+document.getElementById("weatherPanel2").setAttribute("class", "hidden");
+document.getElementById("weatherPanel3").setAttribute("class", "hidden");
+document.getElementById("weatherPanel4").setAttribute("class", "hidden");
+document.getElementById("weatherPanel5").setAttribute("class", "hidden");
+};
+
+onload();
+
+function fillDates(){
+    document.getElementById("displayDay1").innerHTML= "<h5>" + moment().add(1, 'days').format("dddd")+ "</h5>";
+    document.getElementById("displayDay2").innerHTML= "<h5>" + moment().add(2, 'days').format("dddd")+ "</h5>";
+    document.getElementById("displayDay3").innerHTML= "<h5>" + moment().add(3, 'days').format("dddd")+ "</h5>";
+    document.getElementById("displayDay4").innerHTML= "<h5>" + moment().add(4, 'days').format("dddd")+ "</h5>";
+    document.getElementById("displayDay5").innerHTML= "<h5>" + moment().add(5, 'days').format("dddd")+ "</h5>";
+
+    document.getElementById("displayDate1").innerHTML= moment().add(1, 'days').format("MMM DD");
+    document.getElementById("displayDate2").innerHTML= moment().add(2, 'days').format("MMM DD");
+    document.getElementById("displayDate3").innerHTML= moment().add(3, 'days').format("MMM DD");
+    document.getElementById("displayDate4").innerHTML= moment().add(4, 'days').format("MMM DD");
+    document.getElementById("displayDate5").innerHTML= moment().add(5, 'days').format("MMM DD");
+}
 
 
 setInterval(pushTime, 1000);
@@ -59,6 +84,7 @@ fetch(openWeatherAPIlink + "lat=" + position.coords.latitude + "&lon=" + positio
 function clickSearch(){
     var city = searchBox.value;
     localStorage.setItem("city :", city); 
+    fillDates();
     
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + key)
         .then(function(response) {
@@ -76,7 +102,7 @@ function clickSearch(){
                 ElDisplayTemp.innerHTML = "Temperature: " + tempTemp + "°C";
                 //5 Day Forecast
                 for(i = 1 ; i <= 5 ; i++) {
-                    document.getElementById("displayLocation"+[i]).innerHTML= "<h5> City: " + data.city.name + "</h5>";
+                    document.getElementById("displayLocation"+[i]).innerHTML= "<h5>" + data.city.name + "</h5>";
                 }
 
                 fetch(openWeatherAPIlink + "lat=" + lat + "&lon=" + lon + key)
@@ -85,6 +111,14 @@ function clickSearch(){
                     })
                     .then(function (data) {
                         console.log(data)
+
+                        document.getElementById("weatherPanel").setAttribute("class", "visible today card");
+                        document.getElementById("weatherPanel1").setAttribute("class", "visible card future");
+                        document.getElementById("weatherPanel2").setAttribute("class", "visible card future");
+                        document.getElementById("weatherPanel3").setAttribute("class", "visible card future");
+                        document.getElementById("weatherPanel4").setAttribute("class", "visible card future");
+                        document.getElementById("weatherPanel5").setAttribute("class", "visible card future");
+
                         
                         if(data.current.uvi > 10){
                             ElDisplayUVI.setAttribute("class", "UVIHigh")
@@ -96,10 +130,10 @@ function clickSearch(){
                         
                         //Current Day
                         ElDisplayDate.innerHTML = moment().format("MMM, DD");
-                        ElDisplayDay.innerHTML = "<h5>" + moment().format("dddd") + "</h5>";
-                        ElDisplayUVI.innerHTML = " UV Index: " + data.current.uvi;
+                        ElDisplayDay.innerHTML = "<h5>" + "Current Day: " + moment().format("dddd") + "</h5>";
+                        ElDisplayUVI.innerHTML = " Current UV Index: " + data.current.uvi;
                         document.getElementById("displayWeatherIcon").src="assets/images/" + data.current.weather[0].icon + ".svg";
-                        document.getElementById("weatherPanel").style.visibility="visible";
+                        
                         //5 Day Forecast
                         for(i = 1 ; i <= 5 ; i++) {
                             console.log(data.daily[i].weather[0].description)
@@ -113,7 +147,6 @@ function clickSearch(){
                             }
 
                             document.getElementById("displayWeatherIcon"+[i]).src="assets/images/" + data.daily[i].weather[0].icon + ".svg";
-                            document.getElementById("displayDay"+[i]).innerHTML= moment(data.daily[i].dt).format("dddd");
                             document.getElementById("displayTemp"+[i]).innerHTML="Temperature: " + (data.daily[i].temp.day - kelvin).toFixed(0) + "°C";
                             document.getElementById("displayHumidity"+[i]).innerHTML="Humidity: " + data.daily[i].humidity + "%";
                             document.getElementById("displayUVI"+[i]).innerHTML=" UV Index: " + data.daily[i].uvi;
