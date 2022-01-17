@@ -1,3 +1,12 @@
+//Table Of Contents
+//1. STORAGE - Storage for getElements and API Key info.
+//2. ONLOAD - onLoad function to set my weather boxes to hidden before I populate them with the weather info.
+//3. DATE FILLING - Filling the date information for each of the cards, moment.js really didn't like running in a for loop so I had to do them individually.
+//4. LOCAL TEMP - Display local details in the header was just a fun little add on I wanted to include so the user can compare local temps with destination temps.
+//5. NESTED FETCH - I nested the fetch request so that I could pick the best data I could for th HTML. This got a little messy but hopefully you can follow.
+
+
+/////////////////////////////////////////////1. STORAGE 
 //Header fun things (on click)
 var currentDay = document.getElementById("currentDay");
 var currentDayMJS = moment().format("dddd, MMMM Do YYYY");
@@ -22,7 +31,10 @@ var openWeatherAPIlink = "https://api.openweathermap.org/data/2.5/onecall?"
 //Modifiers 
 var kelvin = 273.15;
 var lastSearchLS = (localStorage.getItem('city :'));
+/////////////////
 
+
+/////////////////////////////////////////////2. ONLOAD
 function onload(){
 console.log(lastSearchLS);
 document.getElementById("lastSearch").innerHTML= "<h5>" + "Last Search: " + '"' + lastSearchLS + '"' + "</h5>";
@@ -33,9 +45,11 @@ document.getElementById("weatherPanel3").setAttribute("class", "hidden");
 document.getElementById("weatherPanel4").setAttribute("class", "hidden");
 document.getElementById("weatherPanel5").setAttribute("class", "hidden");
 };
-
 onload();
+/////////////////
 
+
+/////////////////////////////////////////////2. DATE FILLING
 function fillDates(){
     document.getElementById("displayDay1").innerHTML= "<h5>" + moment().add(1, 'days').format("dddd")+ "</h5>";
     document.getElementById("displayDay2").innerHTML= "<h5>" + moment().add(2, 'days').format("dddd")+ "</h5>";
@@ -49,15 +63,15 @@ function fillDates(){
     document.getElementById("displayDate4").innerHTML= moment().add(4, 'days').format("MMM, DD");
     document.getElementById("displayDate5").innerHTML= moment().add(5, 'days').format("MMM, DD");
 }
+/////////////////
 
 
+/////////////////////////////////////////////4. LOCAL TEMP
 setInterval(pushTime, 1000);
 function pushTime() {
     var tempTimeMJS= moment().format("dddd, Do MMMM YYYY, h:mm");
     currentDay.innerHTML = tempTimeMJS; 
 }
-
-/////////////////
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -81,8 +95,10 @@ fetch(openWeatherAPIlink + "lat=" + position.coords.latitude + "&lon=" + positio
             currentTempHeader.innerHTML = currentTemp + "°C";
     });
 }
+/////////////////
 
 
+/////////////////////////////////////////////5. NESTED FETCH
 function clickSearch(){
     var city = searchBox.value;
     localStorage.setItem("city :", city); 
@@ -116,15 +132,12 @@ function clickSearch(){
                         return response.json();
                     })
                     .then(function (data) {
-                        console.log(data)
-
                         document.getElementById("weatherPanel").setAttribute("class", "visible today card grow");
                         document.getElementById("weatherPanel1").setAttribute("class", "visible card future grow");
                         document.getElementById("weatherPanel2").setAttribute("class", "visible card future grow");
                         document.getElementById("weatherPanel3").setAttribute("class", "visible card future grow");
                         document.getElementById("weatherPanel4").setAttribute("class", "visible card future grow");
                         document.getElementById("weatherPanel5").setAttribute("class", "visible card future grow");
-
                         
                         if(data.current.uvi > 10){
                             ElDisplayUVI.setAttribute("class", "UVIHigh")
@@ -133,18 +146,16 @@ function clickSearch(){
                         }else {
                             ElDisplayUVI.setAttribute("class", "UVILow")
                         }
-                        
+
                         //Current Day
                         ElDisplayDate.innerHTML = moment().format("MMM, DD");
                         ElDisplayDay.innerHTML = "<h5>" + "Current Day: " + moment().format("dddd") + "</h5>";
                         ElDisplayUVI.innerHTML = " Current UV Index: " + data.current.uvi;
                         document.getElementById("displayWeatherIcon").src="assets/images/" + data.current.weather[0].icon + ".svg";
-                        
+
                         //5 Day Forecast
                         for(i = 1 ; i <= 5 ; i++) {
-                            console.log(data.daily[i].weather[0].description)
-
-                            if(data.daily[i].uvi > 10){
+                            if(data.daily[i].uvi > 10){ // UVI color warning code
                                 document.getElementById("displayUVI"+[i]).setAttribute("class", "UVIHigh")
                             }else if(data.daily[i].uvi > 5){
                                 document.getElementById("displayUVI"+[i]).setAttribute("class", "UVIMid")
@@ -159,9 +170,6 @@ function clickSearch(){
                             document.getElementById("displayConditions"+[i]).innerHTML="Conditions: " + data.daily[i].weather[0].description;
                         }
                 });
-                
-
             });
-
 }
 
