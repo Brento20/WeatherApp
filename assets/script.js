@@ -21,9 +21,11 @@ var openWeatherAPIlink = "https://api.openweathermap.org/data/2.5/onecall?"
 
 //Modifiers 
 var kelvin = 273.15;
+var lastSearchLS = (localStorage.getItem('city :'));
 
 function onload(){
-
+console.log(lastSearchLS);
+document.getElementById("lastSearch").innerHTML= "<h5>" + "Last Search: " + '"' + lastSearchLS + '"' + "</h5>";
 document.getElementById("weatherPanel").setAttribute("class", "hidden");
 document.getElementById("weatherPanel1").setAttribute("class", "hidden");
 document.getElementById("weatherPanel2").setAttribute("class", "hidden");
@@ -41,11 +43,11 @@ function fillDates(){
     document.getElementById("displayDay4").innerHTML= "<h5>" + moment().add(4, 'days').format("dddd")+ "</h5>";
     document.getElementById("displayDay5").innerHTML= "<h5>" + moment().add(5, 'days').format("dddd")+ "</h5>";
 
-    document.getElementById("displayDate1").innerHTML= moment().add(1, 'days').format("MMM DD");
-    document.getElementById("displayDate2").innerHTML= moment().add(2, 'days').format("MMM DD");
-    document.getElementById("displayDate3").innerHTML= moment().add(3, 'days').format("MMM DD");
-    document.getElementById("displayDate4").innerHTML= moment().add(4, 'days').format("MMM DD");
-    document.getElementById("displayDate5").innerHTML= moment().add(5, 'days').format("MMM DD");
+    document.getElementById("displayDate1").innerHTML= moment().add(1, 'days').format("MMM, DD");
+    document.getElementById("displayDate2").innerHTML= moment().add(2, 'days').format("MMM, DD");
+    document.getElementById("displayDate3").innerHTML= moment().add(3, 'days').format("MMM, DD");
+    document.getElementById("displayDate4").innerHTML= moment().add(4, 'days').format("MMM, DD");
+    document.getElementById("displayDate5").innerHTML= moment().add(5, 'days').format("MMM, DD");
 }
 
 
@@ -88,6 +90,10 @@ function clickSearch(){
     
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + key)
         .then(function(response) {
+            
+            if (!response.ok){
+                alert("Error: The location entered is not valid, please check your spelling and try again.")
+            }
             return response.json();
         })
             .then(function(data) {
