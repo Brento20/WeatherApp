@@ -47,7 +47,6 @@ THEN I am again presented with current and future conditions for that city
 # HTML.
 1. Using bootstrap for grids.
 2. Created cards to display weather.
-3. 
 
 # .CSS stylesheet planing.
 
@@ -61,7 +60,10 @@ THEN I am again presented with current and future conditions for that city
 
 # Future improvements.
 
-1. 
+1. Make last search clickable (I just ran out of time unfortunately)
+2. Add some fun hover animations while scrolling over weather cards.
+3. Replace Alert error message with a model.
+
 
 Deployed application:
 ![screenshot](./assets/images/screenShot1.png)
