@@ -118,12 +118,12 @@ function clickSearch(){
                     .then(function (data) {
                         console.log(data)
 
-                        document.getElementById("weatherPanel").setAttribute("class", "visible today card");
-                        document.getElementById("weatherPanel1").setAttribute("class", "visible card future");
-                        document.getElementById("weatherPanel2").setAttribute("class", "visible card future");
-                        document.getElementById("weatherPanel3").setAttribute("class", "visible card future");
-                        document.getElementById("weatherPanel4").setAttribute("class", "visible card future");
-                        document.getElementById("weatherPanel5").setAttribute("class", "visible card future");
+                        document.getElementById("weatherPanel").setAttribute("class", "visible today card grow");
+                        document.getElementById("weatherPanel1").setAttribute("class", "visible card future grow");
+                        document.getElementById("weatherPanel2").setAttribute("class", "visible card future grow");
+                        document.getElementById("weatherPanel3").setAttribute("class", "visible card future grow");
+                        document.getElementById("weatherPanel4").setAttribute("class", "visible card future grow");
+                        document.getElementById("weatherPanel5").setAttribute("class", "visible card future grow");
 
                         
                         if(data.current.uvi > 10){

@@ -63,6 +63,7 @@ THEN I am again presented with current and future conditions for that city
 1. Make last search clickable (I just ran out of time unfortunately)
 2. Add some fun hover animations while scrolling over weather cards.
 3. Replace Alert error message with a model.
+4. make the current location finder a smoother experience.
 
 
 Deployed application:

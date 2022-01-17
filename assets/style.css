@@ -71,3 +71,11 @@ img {
 .future {
     background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(211, 220, 230));
 }
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+    
+.grow:hover { 
+    transform: scale(1.1); 
+}
