@@ -32,3 +32,21 @@ html {
 .correctCase {
     text-transform: capitalize;
 }
+
+.UVIHigh {
+    color:white;
+    background-color: rgb(142, 29, 29);
+    border-radius: 4px;
+}
+
+.UVIMid {
+    color: white;
+    background-color: rgb(207, 175, 31);
+    border-radius: 4px;
+}
+
+.UVILow {
+    color: white;
+    background-color: rgb(1, 112, 1);
+    border-radius: 4px;
+}
