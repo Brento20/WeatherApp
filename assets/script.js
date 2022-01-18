@@ -23,6 +23,7 @@ var ElDisplayLocation = document.getElementById("displayLocation");
 var ElDisplayHumidity = document.getElementById("displayHumidity");
 var ElDisplayConditions = document.getElementById("displayConditions");
 var ElDisplayUVI = document.getElementById("displayUVI");
+var ElDisplayLocationCountry = document.getElementById("displayCountry");
 
 //Open Weather API
 var key = "&appid=1c58df78b7cb6f05f16ac0c4a7c36504"
@@ -118,6 +119,7 @@ function clickSearch(){
                 var lat = data.city.coord.lat;
                 //Current Day
                 ElDisplayLocation.innerHTML = "<h5> City: " + data.city.name + "</h5>";
+                ElDisplayLocationCountry.innerHTML = "<h5> Country: " + data.city.country + "</h5>";
                 ElDisplayConditions.innerHTML = "Conditions: " + data.list[0].weather[0].description;
                 ElDisplayHumidity.innerHTML = "Humidity: " + data.list[0].main.humidity + "%";
                 ElDisplayTemp.innerHTML = "Temperature: " + tempTemp + "°C";
