@@ -36,7 +36,6 @@ var lastSearchLS = (localStorage.getItem('city :'));
 
 /////////////////////////////////////////////2. ONLOAD
 function onload(){
-console.log(lastSearchLS);
 document.getElementById("lastSearch").innerHTML= "<h5>" + "Last Search: " + '"' + lastSearchLS + '"' + "</h5>";
 document.getElementById("weatherPanel").setAttribute("class", "hidden");
 document.getElementById("weatherPanel1").setAttribute("class", "hidden");

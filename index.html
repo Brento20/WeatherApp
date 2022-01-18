@@ -34,7 +34,7 @@
         </div>
     </header>
     <!-- Search Panel -->
-    <div class="row align-items-space-between">
+    <div class="row " id="searchPanel">
         <div class="card future" style="width: 27rem;">
             <div class="card-body">
                 <h5 class="card-title">Weather Search</h5>
@@ -46,11 +46,14 @@
                 <button onclick="clickSearch()" class="btn btn-primary">Find Weather</button>
                 <br>
                 <br>
-                <div id="lastSearch"></div>
+                <ul id="lastSearch">
+                
+                </ul>
             </div>
         </div>
         <!-- Uses a combination of col-* values to make full-size on small devices and half-size on medium or larger devices -->
-            <div class="col-12 col-md-6">
+            <div>
+                <div class="card text" style="width: 27rem;">
                 <h1>Introduction to Weather</h1>
                 <p>The number of times I've had to go somewhere only to realise I could have cancelled due to bad weather is too dang high! <br><br> Even when its sunny, the risk of deadly UV rays provides a excellent deterrent to venturing into the great outdoors!<br> Don't leave yourself open to surprise expeditions!<br><br> Use "Weather... you should go?" TODAY!</p>
             </div>
@@ -135,8 +138,10 @@
 
 <!-- city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index -->
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
+
 
 </body>
 </html>

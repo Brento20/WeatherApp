@@ -2,9 +2,21 @@
 
 html {
     font-family: 'Nunito Sans', sans-serif;;
-    max-width: 920px;
+    max-width: 950px;
     margin: auto;
     background-color: rgb(231, 231, 231);
+}
+
+#weatherPanelMain {
+    max-width: 950px;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+#searchPanel {
+    max-width: 950px;
+    justify-content: space-evenly;
+    margin: auto;
 }
 
 .headerStyle {
@@ -29,6 +41,10 @@ html {
     margin: 20px;
     filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.3));
     padding: 10px;
+}
+
+.text {
+    text-align: center;
 }
 
 .correctCase {
